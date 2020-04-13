@@ -1,0 +1,21 @@
+// função do menu sideBar   
+function onOpen() {
+  SpreadsheetApp.getUi() 
+      .createMenu('Alumia')
+      .addItem('Calculo', 'FunCal')
+      .addToUi();
+}
+//sideBar configuração, link com o doc HTML
+function FunCal() {
+  var html = HtmlService.createHtmlOutputFromFile('form')
+      .setTitle('Alumia')
+      .setWidth(300);
+  SpreadsheetApp.getUi() 
+      .showSidebar(html);
+}
+
+//função somar ( atenção no form, google.script.run.somar)
+function somar(num1, num2) {
+  const soma = num1 + num2;
+  SpreadsheetApp.getActiveSheet().getRange("A1").setValue(soma);
+}

@@ -1,0 +1,33 @@
+   <p>Digite dois numeros e clique em "Enviar" para colocar a soma na célula A1 </p>
+   
+   <label for="num1">Primeiro numero:</label><br>
+    <input type="text" id="num1" /><br>
+    
+    <label for="num2">Segundo numero:</label><br>
+    <input type="text" id="num2" /><br>
+    <br>
+    
+    <button id="enviar" onclick="mandaPlanilha()">Enviar</button><br>
+    
+    <p>Clique em "Olhar" para ver o resultado aqui</p>
+    <button id="soma" onclick="somaSlide()">Olhar</button><br>
+    
+    <p>O resultado da soma é: <p>
+    <div id="result"></div>
+
+    <script>
+      function somaSlide() {
+        var num1 = parseFloat(document.querySelector("#num1").value);
+        var num2 = parseFloat(document.querySelector("#num2").value);
+        var soma = num1 + num2;
+        document.querySelector("#result").innerHTML = soma;
+      }
+      
+      function mandaPlanilha() {
+      var num1 = parseFloat(document.querySelector("#num1").value);
+      var num2 = parseFloat(document.querySelector("#num2").value);        
+        google.script.run.somar(num1, num2);
+      }
+
+      
+    </script>
